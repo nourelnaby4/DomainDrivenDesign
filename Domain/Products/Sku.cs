@@ -1,4 +1,4 @@
-﻿namespace Domain.Product
+﻿namespace Domain.Products
 {
     // Stock Keeping Unit
     public record Sku
@@ -12,7 +12,6 @@
                 throw new ArgumentNullException(nameof(value));
             if (value.Length != DefaultLength)
                 throw new InvalidDataException(nameof(value));
-
 
             return new Sku(value);
         }

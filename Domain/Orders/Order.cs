@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace Domain.Orders
 {
-    public class Order
+    public class Order : Entity
     {
         private Order(Guid customerId)
         {
             CustomerId = customerId;
         }
         private readonly HashSet<LineItem> _lineItems = new();
-        public Guid Id { get; private set; }
         public Guid CustomerId { get; private set; }
 
         public void Add(Product product)
@@ -29,7 +28,7 @@ namespace Domain.Orders
             return order;
         }
     }
-    public class LineItem
+    public class LineItem : Entity
     {
         private LineItem(Guid id, Guid orderId, Guid productId, Money price)
         {
@@ -42,7 +41,6 @@ namespace Domain.Orders
         {
             return new LineItem(id, orderId, productId, price);
         }
-        public Guid Id { get; private set; }
         public Guid OrderId { get; private set; }
         public Guid ProductId { get; private set; }
         public Money Price { get; private set; }

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Product
+namespace Domain.Products
 {
-    public class Product
+    public class Product : Entity
     {
-        public Guid Id { get; private set; }
         public string Name { get; private set; }
         public Money Price { get; private set; }
         public Sku Sku { get; private set; }
