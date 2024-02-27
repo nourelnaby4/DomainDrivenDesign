@@ -4,7 +4,7 @@
     public record Sku
     {
         const int DefaultLength = 15;
-        private string Value { get; init; }
+        public string Value { get; init; }
         private Sku(string value) => Value = value;
         public static Sku Create(string value)
         {

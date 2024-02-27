@@ -1,4 +1,5 @@
 ﻿namespace Domain.Products
 {
-    public record Money(string Currenc, decimal Amount);
+
+    public record Money(string Currency, decimal Amount);
 }

@@ -15,6 +15,7 @@ namespace Domain.Orders
             CustomerId = customerId;
         }
         private readonly HashSet<LineItem> _lineItems = new();
+        public IReadOnlyList<LineItem> LineItems => _lineItems.ToList();
         public Guid CustomerId { get; private set; }
 
         public void Add(Product product)
@@ -27,22 +28,5 @@ namespace Domain.Orders
             var order = new Order(customer.Id);
             return order;
         }
-    }
-    public class LineItem : Entity
-    {
-        private LineItem(Guid id, Guid orderId, Guid productId, Money price)
-        {
-            Id = id;
-            OrderId = orderId;
-            ProductId = productId;
-            Price = price;
-        }
-        public static LineItem Create(Guid id, Guid orderId, Guid productId, Money price)
-        {
-            return new LineItem(id, orderId, productId, price);
-        }
-        public Guid OrderId { get; private set; }
-        public Guid ProductId { get; private set; }
-        public Money Price { get; private set; }
     }
 }
